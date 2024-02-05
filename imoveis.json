@@ -1,0 +1,45 @@
+{
+  "name": "modelo-imoveis",
+  "description": "Modelo de previsão de preço de imóveis",
+  "version": "1.0.0",
+  "type": "regression",
+  "inputs": [
+    {
+      "name": "tamanho",
+      "type": "float",
+      "description": "Tamanho do imóvel em metros quadrados"
+    },
+    {
+      "name": "quartos",
+      "type": "int",
+      "description": "Número de quartos do imóvel"
+    },
+    {
+      "name": "localizacao",
+      "type": "string",
+      "description": "Localização do imóvel (cidade, bairro)"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "preco",
+      "type": "float",
+      "description": "Preço previsto do imóvel"
+    }
+  ],
+  "environment": {
+    "python": {
+      "interpreter": "python3.9"
+    },
+    "dependencies": [
+      "azureml-sdk",
+      "numpy",
+      "pandas",
+      "scikit-learn"
+    ]
+  },
+  "scoring_script": "score.py",
+  "deployment_type": "batch",
+  "compute_target": "amlcompute",
+  "max_run_duration_seconds": 3600
+}
